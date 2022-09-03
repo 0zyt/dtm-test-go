@@ -4,10 +4,12 @@ pipeline {
         stage('Build') {
             steps {
                 echo "build"
+                sh 'printenv'
             }
         }
         stage('Test') {
             steps {
+            sh 'pwd&&ls -alh'
                 echo "test"
             }
         }
