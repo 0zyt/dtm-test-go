@@ -3,7 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
+
 	"github.com/hashicorp/memberlist"
+
 	// "net"
 	"os"
 	"strconv"
