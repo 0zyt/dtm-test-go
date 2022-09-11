@@ -38,14 +38,14 @@ func mai1n() {
 
 	fmt.Println("config.BindPort", config.BindPort)
 
-	list, err := memberlist.Create(config)
+	list1, err := memberlist.Create(config)
 	if err != nil {
 		panic("Failed to create memberlist: " + err.Error())
 	}
 
 	// Join an existing cluster by specifying at least one known member.
 	// 配置种子节点, 这里我直接写死了
-	_, err = list.Join([]string{"127.0.0.1:8001", "127.0.0.1:8002"})
+	_, err = list1.Join([]string{"127.0.0.1:8001", "127.0.0.1:8002"})
 	fmt.Println("err", err)
 
 	if err != nil {
@@ -55,7 +55,7 @@ func mai1n() {
 	// Ask for members of the cluster
 	for {
 		fmt.Println("-------------start--------------")
-		for _, member := range list.Members() {
+		for _, member := range list1.Members() {
 			fmt.Printf("Member: %s %s\n", member.Name, member.Addr)
 		}
 		fmt.Println("-------------end--------------")
