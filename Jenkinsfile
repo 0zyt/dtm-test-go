@@ -13,6 +13,12 @@ pipeline {
                 echo "test"
             }
         }
+        stage('Test2') {
+            steps {
+            sh 'pwd&&ls -alh'
+                echo "test"
+            }
+        }
         stage('Deploy') {
             steps {
                 echo "deploy"
